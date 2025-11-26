@@ -1,8 +1,63 @@
 import numpy as np
 
 def calculate(list):
+    # Checks the length of the is 9 characters
+    if len(list) != 9:
+        raise ValueError("List must contain nine numbers.")
+    # Convert the list to a 3x3 matrix
+    list = [0,1,2,3,4,5,6,7,8]
+    array = np.array(list).reshape(3,3)
+    # print(array)
 
+    # Calculate the three mean values (axis 1, axis 2, flattened)
+    mean_ax1 = array.mean(axis=0).tolist()
+    mean_ax2 = array.mean(axis =1).tolist()
+    mean_flat = array.flatten().mean()
+    mean_list = [mean_ax1, mean_ax2, mean_flat]
+    #print(mean_list)
 
+    # Calculate the three variance values
+    var_ax1 = array.var(axis = 0).tolist()
+    var_ax2 = array.var(axis = 1).tolist()
+    var_flat = array.flatten().var()
+    var_list = [var_ax1, var_ax2, var_flat]
+    #print(var_list)
 
+    # Calculate the three standard deviation values
+    std_ax1 = array.std(axis = 0).tolist()
+    std_ax2 = array.std(axis = 1).tolist()
+    std_flat = array.flatten().std()
+    std_list = [std_ax1, std_ax2, std_flat]
+    #print(std_list)
+
+    # Calculate the three maximum values
+    max_ax1 = array.max(axis = 0).tolist()
+    max_ax2 = array.max(axis = 1).tolist()
+    max_flat = array.flatten().max()
+    max_list = [max_ax1, max_ax2, max_flat]
+    #print(max_list)
+
+    # Calculate the three minimum values
+    min_ax1 = array.min(axis = 0).tolist()
+    min_ax2 = array.min(axis = 1).tolist()
+    min_flat = array.flatten().min()
+    min_list = [min_ax1, min_ax2, min_flat]
+    #print(min_list)
+
+    # Calculate the three Sums values
+    sum_ax1 = array.sum(axis = 0).tolist()
+    sum_ax2 = array.sum(axis = 1).tolist()
+    sum_flat = array.flatten().sum()
+    sum_list = [sum_ax1, sum_ax2, sum_flat]
+    #print(sum_list)
+
+    # Combine all values into a dictionary to return
+
+    calculations = {'mean': mean_list,
+                   'variance': var_list,
+                   'standard deviation': std_list,
+                    'max': max_list,
+                    'min': min_list,
+                    'sum': sum_list}
 
     return calculations
